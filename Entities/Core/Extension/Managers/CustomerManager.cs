@@ -53,9 +53,9 @@ namespace EntitiesAndCore.Core.Extension.Managers
                 customer.Deleted = true;
                 //  _customerDal.Delete(customer);
                 _customerDal.Update(customer);
-                return new DataResult<Customer>(customer,HttpStatusCode.OK);
+                return new DataResult<Customer>(customer,HttpStatusCode.OK,"Success");
             }
-            return new DataResult<Customer>(customer,HttpStatusCode.NotFound);
+            return new DataResult<Customer>(customer,HttpStatusCode.NotFound,"your data not suitable for deleting.Please check");
         }
 
         public IResult Update(Customer customer)
@@ -63,9 +63,9 @@ namespace EntitiesAndCore.Core.Extension.Managers
             if (customer != null && customer.Id > 0)
             {
                 _customerDal.Update(customer);
-                return new DataResult<Customer>(customer,HttpStatusCode.OK);
+                return new DataResult<Customer>(customer,HttpStatusCode.OK,"Success");
             }
-            return new DataResult<Customer>(customer,HttpStatusCode.NotFound);
+            return new DataResult<Customer>(customer,HttpStatusCode.NotFound,"Control Your Given Context attiributes");
         }
 
         public IDataResult<List<Customer>> GetCustomerListWithNation(string nation)
@@ -80,7 +80,7 @@ namespace EntitiesAndCore.Core.Extension.Managers
         {
             var rtValue = _customerDal.GetList();
             if (rtValue.Count == 0)
-                return new DataResult<List<Customer>>(rtValue,HttpStatusCode.NotFound,"No Data");
+                return new DataResult<List<Customer>>(rtValue,HttpStatusCode.NotFound,"No Data Found");
 
             return new DataResult<List<Customer>>(rtValue,HttpStatusCode.OK,"Success");
         }
@@ -89,8 +89,8 @@ namespace EntitiesAndCore.Core.Extension.Managers
         {
             var value = _customerDal.GetList(x => x.Id == customerId).First();
             if (value != null)
-                return new DataResult<Customer>(value,HttpStatusCode.OK);
-            return new DataResult<Customer>(null,HttpStatusCode.NotFound);
+                return new DataResult<Customer>(value,HttpStatusCode.OK,"Success");
+            return new DataResult<Customer>(null,HttpStatusCode.NotFound,"Control your Given Id,Data Not Found");
         }
 
 
