@@ -32,19 +32,13 @@ namespace EntitiesAndCore.Core.Extension.Managers
         private IResult CheckForCustomerDataValid(Customer checkValue)
         {
             if (_customerDal.GetList(p => p.NationalityNumber == checkValue.NationalityNumber).Count != 0)
-            {
                 return new ErrorResult(message: "Customer Has Been Added Before");
-            }
-
             return new SuccessResult();
         }
         private IResult CheckForCustomerDataValidForDelete(Customer checkValue)
         {
             if (_customerDal.GetList(p => p.NationalityNumber == checkValue.NationalityNumber).Count == 0)
-            {
                 return new ErrorResult(message: "Control your  `Given NationalityNumber and Id info`  ");
-            }
-
             return new SuccessResult();
         }
 
@@ -61,7 +55,7 @@ namespace EntitiesAndCore.Core.Extension.Managers
                 _customerDal.Update(customer);
                 return new DataResult<Customer>(customer,HttpStatusCode.OK);
             }
-            return new DataResult<Customer>(customer,HttpStatusCode.NotAcceptable);
+            return new DataResult<Customer>(customer,HttpStatusCode.NotFound);
         }
 
         public IResult Update(Customer customer)
@@ -71,12 +65,24 @@ namespace EntitiesAndCore.Core.Extension.Managers
                 _customerDal.Update(customer);
                 return new DataResult<Customer>(customer,HttpStatusCode.OK);
             }
-            return new DataResult<Customer>(customer,HttpStatusCode.BadRequest);
+            return new DataResult<Customer>(customer,HttpStatusCode.NotFound);
+        }
+
+        public IDataResult<List<Customer>> GetCustomerListWithNation(string nation)
+        {
+            var returnvalue = _customerDal.GetList().Where(x => x.Nationality.Equals(nation)).ToList();
+            if (returnvalue.Count == 0)
+                return new DataResult<List<Customer>>(returnvalue,HttpStatusCode.NotFound,"No Data");
+            return new DataResult<List<Customer>>(_customerDal.GetList().Where(x => x.Nationality.Equals(nation)).ToList(),HttpStatusCode.OK,"Success");
         }
 
         public IDataResult<List<Customer>> GetCustomerList()
         {
-            return new DataResult<List<Customer>>(_customerDal.GetList(),HttpStatusCode.OK,"Success");
+            var rtValue = _customerDal.GetList();
+            if (rtValue.Count == 0)
+                return new DataResult<List<Customer>>(rtValue,HttpStatusCode.NotFound,"No Data");
+
+            return new DataResult<List<Customer>>(rtValue,HttpStatusCode.OK,"Success");
         }
 
         public IDataResult<Customer> GetCustomerById(Int32 customerId)
@@ -84,7 +90,7 @@ namespace EntitiesAndCore.Core.Extension.Managers
             var value = _customerDal.GetList(x => x.Id == customerId).First();
             if (value != null)
                 return new DataResult<Customer>(value,HttpStatusCode.OK);
-            return new DataResult<Customer>(null,HttpStatusCode.BadRequest);
+            return new DataResult<Customer>(null,HttpStatusCode.NotFound);
         }
 
 

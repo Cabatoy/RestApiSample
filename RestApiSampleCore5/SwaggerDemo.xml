@@ -27,6 +27,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:RestApiSampleCore5.Controllers.CustomerController.GetListByNation(System.String)">
+            <summary>
+            Get Customer with Id
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:RestApiSampleCore5.Controllers.CustomerController.Add(EntitiesAndCore.Models.Dto.DtoCustomer)">
             <summary>
              Add Customer

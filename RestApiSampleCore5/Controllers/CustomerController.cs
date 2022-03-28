@@ -54,10 +54,28 @@ namespace RestApiSampleCore5.Controllers
             var result = _customerService.GetCustomerById(customerId);
             if (result.Success == HttpStatusCode.OK)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
 
-            return BadRequest(result.Success);
+            return BadRequest(result);
+        }
+
+
+
+        /// <summary>
+        /// Get Customer with Id
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("getListByNation/{nation}")]
+        //[Route("getById/{customerId}")]
+        public IActionResult GetListByNation(string nation)
+        {
+            var result = _customerService.GetCustomerListWithNation(nation);
+            if (result.Success == HttpStatusCode.OK && result.Data.Count > 0)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         /// <summary>
@@ -72,11 +90,11 @@ namespace RestApiSampleCore5.Controllers
 
             if (result.Success != HttpStatusCode.OK)
             {
-                return BadRequest(result.Success);
+                return BadRequest(result);
 
             }
 
-            return Ok(result.Success);
+            return Ok(result);
         }
 
 
@@ -93,7 +111,7 @@ namespace RestApiSampleCore5.Controllers
 
             if (result.Success == HttpStatusCode.OK)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             else
                 return BadRequest(result.Message);
@@ -112,9 +130,9 @@ namespace RestApiSampleCore5.Controllers
             var result = _customerService.Delete(PrepareForDelete(Converter(customer)));
             if (result.Success == HttpStatusCode.OK)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         private Customer Converter(DtoCustomer dtoCustomer)

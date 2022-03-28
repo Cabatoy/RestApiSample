@@ -11,5 +11,7 @@ namespace EntitiesAndCore.Core.Dal
         IResult Add(Customer customer);
         IResult Delete(Customer customer);
         IResult Update(Customer customer);
+
+        IDataResult<List<Customer>> GetCustomerListWithNation(string Nation);
     }
 }
