@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Core\**" />
+    <EmbeddedResource Remove="Core\**" />
+    <None Remove="Core\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Core\Autofac\AspectInterceptorSelector.cs" />
+    <Compile Include="Core\Autofac\AutofacBusinessModule.cs" />
+    <Compile Include="Core\Dal\Ef\EfCustomerDal.cs" />
+    <Compile Include="Core\Dal\ICustomerDal.cs" />
+    <Compile Include="Core\Dal\ICustomerService.cs" />
+    <Compile Include="Core\DataAcccess\EfCore\EfEntityRepositoryBase.cs" />
+    <Compile Include="Core\DataAcccess\IEntityRepository.cs" />
+    <Compile Include="Core\Extension\ErrorDetails.cs" />
+    <Compile Include="Core\Extension\ExceptionMiddleware.cs" />
+    <Compile Include="Core\Extension\ExceptionMiddlewareExtensions.cs" />
+    <Compile Include="Core\Extension\Managers\CustomerManager.cs" />
+    <Compile Include="Core\Extension\Tools\BusinessRules.cs" />
+    <Compile Include="Core\IEntity.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0-preview.2.21154.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0-preview.2.21154.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0-preview.2.21154.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RestApiSampleCore5</name>
+    </assembly>
+    <members>
+        <member name="T:RestApiSampleCore5.Controllers.CustomerController">
+            <summary>
+            Customer jobs
+            </summary>
+        </member>
+        <member name="M:RestApiSampleCore5.Controllers.CustomerController.#ctor(EntitiesAndCore.Core.Dal.ICustomerService)">
+            <summary>
+            const
+            </summary>
+            <param name="customerService"></param>
+        </member>
+        <member name="M:RestApiSampleCore5.Controllers.CustomerController.GetList">
+            <summary>
+            Get All Customers..
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RestApiSampleCore5.Controllers.CustomerController.GetById(System.Int32)">
+            <summary>
+            Get Customer with Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RestApiSampleCore5.Controllers.CustomerController.Add(EntitiesAndCore.Models.Dto.DtoCustomer)">
+            <summary>
+             Add Customer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RestApiSampleCore5.Controllers.CustomerController.Update(EntitiesAndCore.Models.Dto.DtoCustomer)">
+            <summary>
+            Update Customer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RestApiSampleCore5.Controllers.CustomerController.Delete(EntitiesAndCore.Models.Dto.DtoCustomer)">
+            <summary>
+            Delete Customer . Flagged Deleted=true
+            not null NationalityNumber 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RestApiSampleCore5.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+    </members>
+</doc>

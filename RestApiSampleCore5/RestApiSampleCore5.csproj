@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TypeScriptTarget>ES3</TypeScriptTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TypeScriptTarget>ES3</TypeScriptTarget>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>C:\Users\CahatayOzdemirCrmAka\Desktop\ProjectForLibrary\RestApiSample\RestApiSampleCore5\SwaggerDemo.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.16.0" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.10.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\EntitiesAndCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+</Project>
