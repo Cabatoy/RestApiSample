@@ -70,7 +70,7 @@ namespace EntitiesAndCore.Core.Extension.Managers
 
         public IDataResult<List<Customer>> GetCustomerListWithNation(string nation)
         {
-            var returnvalue = _customerDal.GetList().Where(x => x.Nationality.Equals(nation)).ToList();
+            var returnvalue = _customerDal.GetList().Where(x => (x.Nationality == nation) && (x.CustomerStatus == CustomerStatus.Qualified)).ToList();
             if (returnvalue.Count == 0)
                 return new DataResult<List<Customer>>(returnvalue,HttpStatusCode.NotFound,"No Data");
             return new DataResult<List<Customer>>(_customerDal.GetList().Where(x => x.Nationality.Equals(nation)).ToList(),HttpStatusCode.OK,"Success");

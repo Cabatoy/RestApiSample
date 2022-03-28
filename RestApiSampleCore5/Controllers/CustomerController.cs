@@ -68,7 +68,7 @@ namespace RestApiSampleCore5.Controllers
         /// <returns></returns>
         [HttpGet("getListByNation/{nation}")]
         //[Route("getById/{customerId}")]
-        public IActionResult GetListByNation(string nation)
+        public IActionResult GetListOfQualifiedByNation(string nation)
         {
             var result = _customerService.GetCustomerListWithNation(nation);
             if (result.Success == HttpStatusCode.OK && result.Data.Count > 0)
