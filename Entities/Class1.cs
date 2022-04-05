@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Entities
+﻿namespace EntitiesAndCore
 {
     public class Class1
     {

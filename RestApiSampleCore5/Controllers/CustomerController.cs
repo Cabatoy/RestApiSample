@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using Entities.Abstract;
-using Entities.Core.Dal;
 using EntitiesAndCore.Core.Dal;
 using EntitiesAndCore.Models.Dto;
 using Microsoft.AspNetCore.Mvc;

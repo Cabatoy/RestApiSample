@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
-using Entities.Core.Dal;
 using EntitiesAndCore.Core.Dal;
 using EntitiesAndCore.Core.Dal.Ef;
 using EntitiesAndCore.Core.Extension.Managers;

@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities.Abstract;
-using Entities.Concrete.EntityFrameWork.Context;
-using Entities.Core.Dal;
+using EntitiesAndCore.Context.EntityFrameWork.Context;
 using EntitiesAndCore.Core.DataAcccess.EfCore;
 
 namespace EntitiesAndCore.Core.Dal.Ef

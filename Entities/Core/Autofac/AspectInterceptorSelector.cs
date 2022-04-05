@@ -11,7 +11,7 @@ namespace EntitiesAndCore.Core.Autofac
 {
     public class AspectInterceptorSelector :IInterceptorSelector
     {
-        
+
         public Castle.DynamicProxy.IInterceptor[] SelectInterceptors(Type type,MethodInfo method,Castle.DynamicProxy.IInterceptor[] interceptors)
         {
             var classAttribute = type.GetCustomAttributes<MethodInterceptionBaseAttiribute>(true).ToList();
@@ -26,7 +26,7 @@ namespace EntitiesAndCore.Core.Autofac
 
 
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method,AllowMultiple = true,Inherited = true)]
-    abstract public class MethodInterceptionBaseAttiribute :Attribute, IInterceptor
+    public abstract class MethodInterceptionBaseAttiribute :Attribute, IInterceptor
     {
         virtual public void Intercept(IInvocation invocation)
         {

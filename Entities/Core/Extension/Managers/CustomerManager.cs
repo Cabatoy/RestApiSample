@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using Entities.Abstract;
-using Entities.Core.Dal;
-using Entities.Core.Extension.Managers;
 using EntitiesAndCore.Core.Dal;
+using EntitiesAndCore.Core.Extension.Tools;
 using EntitiesAndCore.Models.Dto.ResultDto;
 
 namespace EntitiesAndCore.Core.Extension.Managers
@@ -48,7 +46,7 @@ namespace EntitiesAndCore.Core.Extension.Managers
             if (result.Success != HttpStatusCode.OK)
                 return result;
 
-            if (_customerDal != null && _customerDal.GetList(p => p.NationalityNumber == customer.NationalityNumber).FirstOrDefault()!.Deleted != false)
+            if (_customerDal != null && _customerDal.GetList(p => p.NationalityNumber == customer.NationalityNumber).FirstOrDefault()!.Deleted)
             {
                 customer.Deleted = true;
                 //  _customerDal.Delete(customer);
@@ -60,7 +58,7 @@ namespace EntitiesAndCore.Core.Extension.Managers
 
         public IResult Update(Customer customer)
         {
-            if (customer != null && customer.Id > 0)
+            if (customer is { Id: > 0 })
             {
                 _customerDal.Update(customer);
                 return new DataResult<Customer>(customer,HttpStatusCode.OK,"Success");
@@ -85,7 +83,7 @@ namespace EntitiesAndCore.Core.Extension.Managers
             return new DataResult<List<Customer>>(rtValue,HttpStatusCode.OK,"Success");
         }
 
-        public IDataResult<Customer> GetCustomerById(Int32 customerId)
+        public IDataResult<Customer> GetCustomerById(int customerId)
         {
             var value = _customerDal.GetList(x => x.Id == customerId).First();
             if (value != null)

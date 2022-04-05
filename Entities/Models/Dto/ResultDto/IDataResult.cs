@@ -8,7 +8,7 @@ namespace EntitiesAndCore.Models.Dto.ResultDto
         string Message { get; }
     }
 
-    public interface IDataResult<T> :IResult
+    public interface IDataResult<out T> :IResult
     {
         T Data { get; }
     }
