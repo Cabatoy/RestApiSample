@@ -22,9 +22,9 @@ namespace Entities.Abstract
         public string Nationality { get; init; }
         public string NationalityNumber { get; init; }
         public string PhoneNumber { get; init; }
-        public bool Deleted { get; init; }
+        public bool Deleted { get; set; }
         public CustomerStatus CustomerStatus { get; init; }
-        public string CustomerStatusMeaning { get; init; }
+        public string CustomerStatusMeaning { get; set; }
         public string Description { get; init; }
         public string DescriptionTwo { get; init; }
         public string DescriptionThree { get; init; }
