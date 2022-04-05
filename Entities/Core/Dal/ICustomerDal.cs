@@ -1,7 +1,7 @@
 ﻿using Entities.Abstract;
-using Entities.Core.DataAcccess;
+using EntitiesAndCore.Core.DataAcccess;
 
-namespace Entities.Core.Dal
+namespace EntitiesAndCore.Core.Dal
 {
     public interface ICustomerDal :IEntityRepository<Customer>
     {

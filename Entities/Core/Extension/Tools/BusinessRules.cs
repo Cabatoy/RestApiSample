@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 using EntitiesAndCore.Models.Dto.ResultDto;
 
-namespace Entities.Core.Extension.Managers
+namespace EntitiesAndCore.Core.Extension.Tools
 {
-    public class BusinessRules
+    public static class BusinessRules
     {
         public static IResult Run(params IResult[] logics)
         {

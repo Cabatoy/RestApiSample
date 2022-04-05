@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Entities.Core;
-using Entities.Core.DataAcccess;
 using Microsoft.EntityFrameworkCore;
 
 namespace EntitiesAndCore.Core.DataAcccess.EfCore

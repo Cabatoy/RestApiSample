@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Entities.Concrete.EntityFrameWork.Context;
+using EntitiesAndCore.Context.EntityFrameWork.Context;
 using EntitiesAndCore.Core.Autofac;
 using EntitiesAndCore.Core.Dal;
 using EntitiesAndCore.Core.Extension.Managers;

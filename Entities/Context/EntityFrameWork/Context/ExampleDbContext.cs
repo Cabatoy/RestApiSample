@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entities.Abstract;
+﻿using Entities.Abstract;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entities.Concrete.EntityFrameWork.Context
+namespace EntitiesAndCore.Context.EntityFrameWork.Context
 {
     public class ExampleDbContext :DbContext
     {

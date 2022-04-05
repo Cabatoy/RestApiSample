@@ -17,17 +17,17 @@ namespace Entities.Abstract
 
         }
 
-        public int Id { get; set; }
-        public string FullName { get; set; }
-        public string Nationality { get; set; }
-        public string NationalityNumber { get; set; }
-        public string PhoneNumber { get; set; }
-        public bool Deleted { get; set; }
-        public CustomerStatus CustomerStatus { get; set; }
-        public string CustomerStatusMeaning { get; set; }
-        public string Description { get; set; }
-        public string DescriptionTwo { get; set; }
-        public string DescriptionThree { get; set; }
+        public int Id { get; init; }
+        public string FullName { get; init; }
+        public string Nationality { get; init; }
+        public string NationalityNumber { get; init; }
+        public string PhoneNumber { get; init; }
+        public bool Deleted { get; init; }
+        public CustomerStatus CustomerStatus { get; init; }
+        public string CustomerStatusMeaning { get; init; }
+        public string Description { get; init; }
+        public string DescriptionTwo { get; init; }
+        public string DescriptionThree { get; init; }
 
     }
 
